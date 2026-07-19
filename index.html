@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLA · Courtney Master Production File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E1F48; --deep:#081634; --blue:#006EFF; --bone:#F5F2EA; --ink:#161A18;
+  --bg:#081634; --surface:#0E1F48; --surface-2:#132a5c; --surface-3:#17347a;
+  --border:#22397a; --border-soft:#1a2f66;
+  --text:#F5F2EA; --text-muted:#a9b6d6; --text-faint:#6b7aa3;
+  --gold:#E8C37A; --green:#7BD88F;
+  --font-display:'Fraunces',Georgia,serif; --font-body:'Inter','Helvetica Neue',sans-serif;
+  --r-sm:8px; --r-md:12px; --r-lg:18px; --r-xl:26px;
+  --max:1180px;
+  --sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;--sp-8:32px;--sp-10:40px;--sp-12:48px;--sp-16:64px;--sp-20:80px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+body{min-height:100dvh;font-family:var(--font-body);font-size:16px;line-height:1.6;color:var(--text);
+  background:radial-gradient(1200px 600px at 70% -10%,#12275e 0%,transparent 60%),linear-gradient(180deg,#0b1c40 0%,#081634 100%);
+  background-attachment:fixed}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(0,110,255,.35);color:#fff}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+/* ---------- Header ---------- */
+.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);
+  background:linear-gradient(180deg,rgba(8,22,52,.92),rgba(8,22,52,.72));
+  border-bottom:1px solid var(--border-soft)}
+.top-inner{max-width:var(--max);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.logo-mark{width:34px;height:34px;flex:0 0 auto}
+.brand-txt b{font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:.14em;text-transform:uppercase;display:block;line-height:1.1}
+.brand-txt span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-faint)}
+.top-meta{font-size:12px;color:var(--text-faint);text-align:right;line-height:1.4}
+.top-meta b{color:var(--gold);font-weight:600}
+
+/* ---------- Tabs ---------- */
+.tabs{position:sticky;top:63px;z-index:40;background:rgba(8,22,52,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-soft)}
+.tabs-inner{max-width:var(--max);margin:0 auto;padding:0 24px;display:flex;gap:4px;overflow-x:auto}
+.tab{appearance:none;background:none;border:none;cursor:pointer;color:var(--text-muted);
+  font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:.02em;
+  padding:16px 18px;white-space:nowrap;border-bottom:2px solid transparent;transition:.2s;display:flex;align-items:center;gap:9px}
+.tab .num{font-family:var(--font-display);font-size:12px;width:22px;height:22px;display:grid;place-items:center;
+  border-radius:999px;background:var(--surface-2);color:var(--text-faint);border:1px solid var(--border);transition:.2s}
+.tab:hover{color:var(--text)}
+.tab.active{color:#fff;border-bottom-color:var(--blue)}
+.tab.active .num{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:48px 24px 120px}
+.panel{display:none}
+.panel.active{animation:fade .4s ease}
+.panel.active{display:block}
+@media(prefers-reduced-motion:reduce){.panel.active{animation:none}}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:14px}
+h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.4rem,1.2rem+3.6vw,4.2rem);line-height:1.02;letter-spacing:-.02em}
+h1 em{font-style:italic;color:var(--gold)}
+h2{font-family:var(--font-display);font-weight:500;font-size:clamp(1.7rem,1.1rem+1.6vw,2.6rem);line-height:1.08;letter-spacing:-.01em;margin-bottom:8px}
+h3{font-family:var(--font-display);font-weight:600;font-size:clamp(1.2rem,1rem+.7vw,1.55rem);line-height:1.15}
+.lead{font-size:clamp(1.05rem,1rem+.4vw,1.25rem);color:var(--text-muted);max-width:64ch;line-height:1.65}
+.section{margin-top:64px}
+.section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;flex-wrap:wrap;border-bottom:1px solid var(--border-soft);padding-bottom:16px}
+.section-head .k{font-family:var(--font-display);font-size:15px;color:var(--blue);font-weight:600;letter-spacing:.05em}
+
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}.tabs-inner{padding:0 12px}.wrap{padding:36px 16px 100px}}
+
+.card{background:linear-gradient(180deg,rgba(19,42,92,.55),rgba(14,31,72,.55));border:1px solid var(--border-soft);
+  border-radius:var(--r-lg);padding:24px}
+.card.hoverable{transition:.25s}
+.card.hoverable:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.kpi{font-family:var(--font-display);font-size:clamp(2rem,1.4rem+1.6vw,2.9rem);font-weight:600;color:var(--gold);line-height:1}
+.kpi-l{font-size:13px;color:var(--text-muted);margin-top:8px;letter-spacing:.02em}
+
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;letter-spacing:.03em;
+  padding:6px 12px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-muted)}
+.pill.blue{background:rgba(0,110,255,.14);border-color:rgba(0,110,255,.4);color:#8fbdff}
+.pill.gold{background:rgba(232,195,122,.12);border-color:rgba(232,195,122,.4);color:var(--gold)}
+.pill.green{background:rgba(123,216,143,.12);border-color:rgba(123,216,143,.35);color:var(--green)}
+
+/* ---------- Copy blocks ---------- */
+.copyblock{position:relative;background:var(--deep);border:1px solid var(--border);border-radius:var(--r-md);
+  padding:20px 20px 20px;margin:14px 0}
+.copyblock .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text-faint);font-weight:600;margin-bottom:10px}
+.copyblock p{color:var(--bone);line-height:1.7;font-size:16.5px;max-width:none}
+.copyblock p+p{margin-top:12px}
+.copybtn{position:absolute;top:12px;right:12px;font-size:12px;font-weight:600;padding:7px 13px;border-radius:999px;
+  background:var(--surface-3);border:1px solid var(--border);color:var(--text-muted);cursor:pointer;transition:.18s;display:inline-flex;align-items:center;gap:6px}
+.copybtn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.copybtn.done{background:var(--green);color:#08210f;border-color:var(--green)}
+
+/* ---------- Timeline / beats ---------- */
+.beat{display:grid;grid-template-columns:120px 1fr;gap:0;border:1px solid var(--border-soft);border-radius:var(--r-md);overflow:hidden;margin-bottom:14px}
+.beat .tc{background:var(--deep);padding:18px 16px;border-right:1px solid var(--border-soft)}
+.beat .tc .t{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--gold)}
+.beat .tc .lab{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);margin-top:4px}
+.beat .bd{padding:18px 20px}
+.beat .bd h4{font-size:15px;font-weight:700;margin-bottom:8px;color:#fff}
+.beat .bd .row{font-size:14.5px;color:#c3cee8;line-height:1.6;margin-bottom:6px}
+.beat .bd .row b{color:var(--text)}
+.tag-see{color:#8fbdff}.tag-hear{color:var(--green)}.tag-card{color:var(--gold)}
+@media(max-width:640px){.beat{grid-template-columns:1fr}.beat .tc{border-right:none;border-bottom:1px solid var(--border-soft);display:flex;gap:14px;align-items:baseline}}
+
+/* graphic card mock */
+.gcard{background:linear-gradient(180deg,#0E1F48,#081634);border:1px solid var(--border);border-radius:var(--r-md);
+  padding:26px 22px;text-align:center;position:relative;overflow:hidden}
+.gcard::before{content:"CTA CARD";position:absolute;top:10px;left:12px;font-size:9.5px;letter-spacing:.2em;color:var(--blue);font-weight:700}
+.gcard .big{font-family:var(--font-display);font-weight:600;font-size:1.5rem;color:var(--bone);line-height:1.15}
+.gcard .sub{font-size:13px;color:var(--text-muted);margin-top:8px}
+.gcard .foot{font-size:11px;color:var(--text-faint);margin-top:12px;letter-spacing:.03em}
+
+.ftlist{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.ftlist li{position:relative;padding-left:22px;font-size:14.5px;color:var(--text-muted);line-height:1.55}
+.ftlist li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+.ftlist li b{color:var(--text)}
+
+.note{border-left:3px solid var(--gold);background:rgba(232,195,122,.07);padding:14px 18px;border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:14.5px;color:var(--text-muted);margin:16px 0}
+.note b{color:var(--gold)}
+.warn{border-left-color:#ff8f6b;background:rgba(255,143,107,.08)}
+.warn b{color:#ff9d7c}
+
+.callrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+.linkbtn{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:10px 16px;border-radius:999px;
+  background:var(--surface-2);border:1px solid var(--border);color:var(--text);transition:.2s}
+.linkbtn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.linkbtn svg{width:15px;height:15px}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px}
+table.cmp th,table.cmp td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--border-soft);vertical-align:top}
+table.cmp th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);font-weight:600}
+table.cmp td b{color:var(--text)}
+table.cmp tr:hover td{background:rgba(19,42,92,.35)}
+
+.opt-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.opt-badge{font-family:var(--font-display);font-weight:700;font-size:1.15rem;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff}
+.o1{background:linear-gradient(135deg,#006EFF,#0047b3)}
+.o2{background:linear-gradient(135deg,#E8C37A,#b8892f);color:#231703}
+.o3{background:linear-gradient(135deg,#7BD88F,#2f8f4a);color:#062611}
+.opt-tagline{font-size:14px;color:var(--text-muted);font-style:italic;font-family:var(--font-display)}
+
+.divider{height:1px;background:var(--border-soft);margin:40px 0}
+.footer{max-width:var(--max);margin:0 auto;padding:30px 24px 60px;color:var(--text-faint);font-size:13px;border-top:1px solid var(--border-soft);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer a{color:var(--text-muted)}.footer a:hover{color:var(--blue)}
+
+.minigrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.minigrid{grid-template-columns:1fr}}
+.step{background:var(--deep);border:1px solid var(--border-soft);border-radius:var(--r-sm);padding:14px 16px;font-size:14px;color:var(--text-muted)}
+.step .n{font-family:var(--font-display);color:var(--blue);font-weight:700;margin-right:8px}
+
+.jump{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 4px}
+.jump a{font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--text-muted)}
+.jump a:hover{color:#fff;border-color:var(--blue)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-label="LLA">
+        <circle cx="20" cy="20" r="18" stroke="#006EFF" stroke-width="1.5" opacity=".55"/>
+        <path d="M12 26c4-10 12-10 16-20M12 14c4 10 12 10 16 20" stroke="#F5F2EA" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="12" cy="14" r="2.3" fill="#006EFF"/><circle cx="28" cy="26" r="2.3" fill="#E8C37A"/>
+      </svg>
+      <div class="brand-txt">
+        <b>Longevity Life Academy</b>
+        <span>Master Production File · Courtney</span>
+      </div>
+    </div>
+    <div class="top-meta">
+      Cut style: <b>French Atelier · "Philippe Short"</b><br>
+      9:16 · 1080×1920 · 30fps · built from the real 7-min NEW SET take
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner" id="tabbar">
+    <button class="tab active" data-t="overview"><span class="num">0</span>Overview</button>
+    <button class="tab" data-t="fa"><span class="num">1</span>French Atelier · Deconstructed</button>
+    <button class="tab" data-t="courtney"><span class="num">2</span>Courtney · Clean Script</button>
+    <button class="tab" data-t="board"><span class="num">3</span>3 Storyboards</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ OVERVIEW ============ -->
+<section class="panel active" id="overview">
+  <div class="eyebrow">Master Production File</div>
+  <h1>Deconstruct the French Atelier formula.<br><em>Rebuild it, sharper, for Courtney.</em></h1>
+  <p class="lead" style="margin-top:22px">Three working tabs. No fluff. Everything here is copy-paste ready — script lines, exact graphic cards, and viral-grade footage calls, each pinned to the line it lands under. Built to the French Atelier rules, then pushed a notch higher.</p>
+
+  <div class="grid g4" style="margin-top:44px">
+    <div class="card"><div class="kpi">2</div><div class="kpi-l">French Atelier reference films decoded (Charline · Philippe)</div></div>
+    <div class="card"><div class="kpi">7min</div><div class="kpi-l">Courtney's real NEW SET take — transcribed &amp; cleaned to one shootable script</div></div>
+    <div class="card"><div class="kpi">3×3</div><div class="kpi-l">Storyboards — each with 3 lead-gen CTA cards in ~3 places, per the rule</div></div>
+    <div class="card"><div class="kpi">≥ FA</div><div class="kpi-l">Every element held to a higher bar than the reference films</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="k">The non-negotiable</span><h2>The one rule that separates a converter from a "shitty testimonial ad"</h2></div>
+    <div class="grid g3">
+      <div class="card hoverable"><h3 style="color:var(--gold)">3 CTA cards, ~3 places</h3><p style="color:var(--text-muted);margin-top:10px;font-size:15px">Every film plants a crystal-clear lead-gen transformation card in roughly three spots. Short. Authentic. Powerful. The audience always knows the one thing we want them to do.</p></div>
+      <div class="card hoverable"><h3 style="color:var(--gold)">Breathtaking footage or it doesn't ship</h3><p style="color:var(--text-muted);margin-top:10px;font-size:15px">Every cut earns its place with gorgeous, on-point, Insta-viral footage. No filler B-roll. The image has to be as good as the line it carries.</p></div>
+      <div class="card hoverable"><h3 style="color:var(--gold)">Footage highlights the line after it</h3><p style="color:var(--text-muted);margin-top:10px;font-size:15px">Picture and script move as one. Each shot is chosen to make the very next spoken line hit harder — total coherency, top to bottom.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="k">How to use this file</span><h2>Straight to work</h2></div>
+    <div class="minigrid">
+      <div class="step"><span class="n">1</span>Read <b>Tab 1</b> to internalize the French Atelier skeleton — the exact beats, cards, and cut logic.</div>
+      <div class="step"><span class="n">2</span>Grab the clean VO from <b>Tab 2</b>. It's the real filmed take, edited down. Copy any block with one click.</div>
+      <div class="step"><span class="n">3</span>Pick a storyboard in <b>Tab 3</b>. Copy the line, drop the card, pull the footage. Build the timeline.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="k">Source of truth</span><h2>Everything traces back to real material</h2></div>
+    <div class="callrow">
+      <a class="linkbtn" href="https://youtu.be/G0lUXZKwg-8" target="_blank">▶ FA Reference · Charline (Paris)</a>
+      <a class="linkbtn" href="https://www.youtube.com/watch?v=z-l7f4qOmEo" target="_blank">▶ FA Reference · Philippe (West Paris)</a>
+      <a class="linkbtn" href="https://github.com/gitteromri-ux/lla-s09-s10-downloads" target="_blank">⌥ Courtney masters &amp; audio · GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB 1: FRENCH ATELIER ============ -->
+<section class="panel" id="fa">
+  <div class="eyebrow">Tab 1 · Reverse-engineered from the two films</div>
+  <h1>The French Atelier <em>formula</em></h1>
+  <p class="lead" style="margin-top:20px">Decoded strictly from the two reference videos — Charline (0:57) and Philippe (0:53). Same DNA as MasterClass ads: a single expert, shot beautifully, speaking directly, with graphic cards doing the selling. Below is the skeleton, then a beat-by-beat teardown of each film.</p>
+
+  <div class="jump">
+    <a href="#fa-skeleton">The skeleton</a>
+    <a href="#fa-charline">Charline teardown</a>
+    <a href="#fa-philippe">Philippe teardown</a>
+    <a href="#fa-rules">The rulebook</a>
+    <a href="#fa-higher">Push it higher</a>
+  </div>
+
+  <div class="section" id="fa-skeleton">
+    <div class="section-head"><span class="k">The skeleton</span><h2>5 moves, every time</h2></div>
+    <div class="grid g2">
+      <div class="card"><span class="pill blue">Move 1 · 0–5s</span><h3 style="margin-top:14px">Place, not pitch</h3><p style="color:var(--text-muted);margin-top:8px;font-size:15px">Open on the <b>world</b>, not the sell. "Paris isn't just a city…" / "In France, refinement is rooted in context." A cultural truth that earns the next 50 seconds.</p></div>
+      <div class="card"><span class="pill blue">Move 2 · 5–15s</span><h3 style="margin-top:14px">Meet the expert</h3><p style="color:var(--text-muted);margin-top:8px;font-size:15px">"I'm Charline. I teach at French Atelier…" — face + name + authority. Warm, direct, one human. This is the trust anchor.</p></div>
+      <div class="card"><span class="pill blue">Move 3 · 15–30s</span><h3 style="margin-top:14px">The method</h3><p style="color:var(--text-muted);margin-top:8px;font-size:15px">What you'll actually gain, framed as craft: "across 20 sessions… the words and the confidence to host elegant dinners." Concrete, aspirational, specific.</p></div>
+      <div class="card"><span class="pill blue">Move 4 · 30–45s</span><h3 style="margin-top:14px">The invitation</h3><p style="color:var(--text-muted);margin-top:8px;font-size:15px">"Join us and learn to speak French the Parisian way." The turn from telling to asking — the soft, elegant CTA.</p></div>
+      <div class="card" style="grid-column:1/-1"><span class="pill gold">Move 5 · sign-off</span><h3 style="margin-top:14px">The signature close</h3><p style="color:var(--text-muted);margin-top:8px;font-size:15px">The locked bookend: <b>"I'm [Name] — welcome to French Atelier."</b> Identity + brand, said with calm certainty. This is the format's fingerprint. Courtney's equivalent: <b>"I'm Courtney. This is Longevity Life Academy."</b></p></div>
+    </div>
+  </div>
+
+  <div class="section" id="fa-charline">
+    <div class="section-head"><span class="k">Teardown A</span><h2>Charline · "Master the Art of French"</h2>
+      <a class="linkbtn" style="margin-left:auto" href="https://youtu.be/G0lUXZKwg-8" target="_blank">▶ Watch · 0:57</a></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:00–0:05</div><div class="lab">Place</div></div><div class="bd"><h4>"Paris isn't just a city. It's a way of expressing yourself — with precision, elegance, and a touch of panache."</h4><div class="row"><b class="tag-see">SEE:</b> Establishing Paris beauty — rooftops, café light, a hand, texture. No face yet.</div><div class="row"><b class="tag-card">CARD:</b> Brand mark / atmospheric title. Emotion before information.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:05–0:17</div><div class="lab">Expert</div></div><div class="bd"><h4>"I'm Charline. I teach at French Atelier, helping learners go beyond fluency — through art, cuisine, fashion, and daily ritual."</h4><div class="row"><b class="tag-see">SEE:</b> First look at Charline. Warm interior, soft key light, direct-adjacent eyeline. Slow push-in.</div><div class="row"><b class="tag-card">CARD:</b> Lower-third name plate — <b>CHARLINE · Senior French Teacher, Paris</b>.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:17–0:33</div><div class="lab">Method</div></div><div class="bd"><h4>"We refine vocabulary and pronunciation — but more importantly, poise."</h4><div class="row"><b class="tag-see">SEE:</b> Cutaways that prove the craft — plating, fabric, a Parisian street exchange. Each cut = one clause.</div><div class="row"><b class="tag-card">CARD:</b> Value/keyword card — <b>poise · pronunciation · panache</b>.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:33–0:45</div><div class="lab">Invite + Close</div></div><div class="bd"><h4>"Join us and learn to speak French the Parisian way — with clarity, elegance, and that unmistakable panache. I'm Charline, and welcome to French Atelier."</h4><div class="row"><b class="tag-see">SEE:</b> Return to Charline, tight, a small knowing smile on the sign-off → brand end-card.</div><div class="row"><b class="tag-card">CARD:</b> <b>CTA end-card</b> — Join us + brand lockup. <b class="tag-hear">HEAR:</b> music resolves under the close.</div></div></div>
+  </div>
+
+  <div class="section" id="fa-philippe">
+    <div class="section-head"><span class="k">Teardown B</span><h2>Philippe · "Discover French from West Paris"</h2>
+      <a class="linkbtn" style="margin-left:auto" href="https://www.youtube.com/watch?v=z-l7f4qOmEo" target="_blank">▶ Watch · 0:53</a></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:00–0:10</div><div class="lab">Place</div></div><div class="bd"><h4>"In France, refinement is rooted in context — from the rugged soil of a Bordeaux vineyard to the precise artistry of a multicourse meal."</h4><div class="row"><b class="tag-see">SEE:</b> Vineyard soil → the plate. Two worlds, one idea. Gorgeous, textural, no face.</div><div class="row"><b class="tag-card">CARD:</b> Atmospheric title over B-roll. "Language follows culture."</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:10–0:20</div><div class="lab">Expert + Method</div></div><div class="bd"><h4>"Language follows culture. At French Atelier, across 20 sessions, you'll gain the words and the confidence…"</h4><div class="row"><b class="tag-see">SEE:</b> Philippe revealed in his study. Then cutaways to the promise — dinner, wine.</div><div class="row"><b class="tag-card">CARD:</b> <b>20 sessions</b> — the concrete offer number, on-screen.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:20–0:30</div><div class="lab">Method</div></div><div class="bd"><h4>"…to host elegant dinners and wine-tasting sessions entirely in French — elegance and courses yours to pour."</h4><div class="row"><b class="tag-see">SEE:</b> The exact aspirational outcome, filmed as if it's a memory. Warm, candlelit, alive.</div><div class="row"><b class="tag-card">CARD:</b> Outcome card — <b>host · taste · pour — in French</b>.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:30–0:39</div><div class="lab">Close</div></div><div class="bd"><h4>"I'm Philippe, and welcome to French Atelier."</h4><div class="row"><b class="tag-see">SEE:</b> Philippe, tight, calm certainty → brand end-card.</div><div class="row"><b class="tag-card">CARD:</b> <b>CTA end-card</b> + brand lockup. Music carries the last 14s out.</div></div></div>
+  </div>
+
+  <div class="section" id="fa-rules">
+    <div class="section-head"><span class="k">The rulebook</span><h2>What makes them convert</h2></div>
+    <div class="grid g2">
+      <div class="card"><h3>Craft rules (observed)</h3><ul class="ftlist" style="margin-top:14px">
+        <li><b>Open on the world, close on the face.</b> Bookend structure — earn attention, then attach it to a person.</li>
+        <li><b>One expert, direct-adjacent eyeline.</b> Off-lens, never dead to camera. Intimacy over broadcast.</li>
+        <li><b>Cut on the clause.</b> Every shot change lands with a new idea. WIDE↔TIGHT alternation.</li>
+        <li><b>Warm, filmic grade.</b> Kodak-Portra warmth; background 1.5–2 stops under the face.</li>
+        <li><b>Every cutaway is beautiful.</b> No filler. If it isn't gorgeous, it doesn't earn the cut.</li>
+        <li><b>Signature sign-off.</b> "I'm [Name] — welcome to [Brand]." The bookend fingerprint.</li>
+      </ul></div>
+      <div class="card"><h3>Conversion rules (the CTA layer)</h3><ul class="ftlist" style="margin-top:14px">
+        <li><b>Concrete offer number, on-screen.</b> "20 sessions" — a specific, screen-printed promise.</li>
+        <li><b>Name + authority chyron.</b> One documentary-style lower-third builds instant trust.</li>
+        <li><b>Aspiration filmed as memory.</b> Show the transformed life, not the product UI.</li>
+        <li><b>Soft, elegant invitation.</b> "Join us." No hype, no pressure — the tone is the sell.</li>
+        <li><b class="tag-card">3 clear CTA cards, ~3 places →</b> the upgrade Courtney's cut demands (see next).</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="section" id="fa-higher">
+    <div class="section-head"><span class="k">Push it higher</span><h2>Where Courtney's cut beats the reference</h2></div>
+    <table class="cmp">
+      <tr><th>Element</th><th>French Atelier reference</th><th>Courtney — higher standard</th></tr>
+      <tr><td><b>CTA clarity</b></td><td>One soft invitation near the end</td><td><b>3 explicit lead-gen cards</b> at ~3 anchor points — problem, mechanism, close</td></tr>
+      <tr><td><b>Proof</b></td><td>Craft implied by imagery</td><td><b>Harvard · 120,000 adults · +14 years</b> — a hard, named stat card</td></tr>
+      <tr><td><b>Offer</b></td><td>"20 sessions"</td><td><b>18 live sessions · 6 pillars · your data → a protocol</b> — richer, screen-printed</td></tr>
+      <tr><td><b>Story spine</b></td><td>Place → expert → method → invite</td><td>Same spine + a <b>problem/empathy engine</b> ("it wasn't your fault") that earns the sell</td></tr>
+      <tr><td><b>Footage</b></td><td>Beautiful, cultural</td><td>Beautiful <b>and</b> each cut hand-picked to detonate the very next line (Tab 3)</td></tr>
+    </table>
+    <div class="note"><b>Read on the two films:</b> both use light music — the "no music / silence" rule is an LLA-specific choice, not a French Atelier law. Match the reference (subtle bed) or keep LLA silence; noted per storyboard so you decide per cut.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 2: COURTNEY CLEAN SCRIPT ============ -->
+<section class="panel" id="courtney">
+  <div class="eyebrow">Tab 2 · From the real 7-min NEW SET take</div>
+  <h1>Courtney · <em>clean final script</em></h1>
+  <p class="lead" style="margin-top:20px">Transcribed from her actual filmed monologue, then edited down — every setup line, director cue, and duplicate take removed. This is the shootable VO spine. Copy any block with one tap.</p>
+
+  <div class="callrow">
+    <button class="copybtn" style="position:static" onclick="copyAll(this)">⧉ Copy the entire clean script</button>
+    <span class="pill green">✓ chatter removed</span>
+    <span class="pill green">✓ live direction removed</span>
+    <span class="pill green">✓ 4 duplicate closing takes → 1 best take</span>
+  </div>
+
+  <div class="section" style="margin-top:36px" id="fullscript">
+    <div class="cb-wrap">
+      <div class="copyblock"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">1 · The Noise — problem</div><p>Trying to fix your health alone means a thousand voices. Every influencer, every headline — all shouting, all contradicting, all quietly selling. No wonder you're overwhelmed.</p></div>
+
+      <div class="copyblock"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">2 · The Reset — reframe + promise</div><p>So take a breath. Put the noise down. I'm going to show you the direct path to longevity — calmly, with no hype and nothing to push. Let me walk you through it.</p></div>
+
+      <div class="copyblock"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">3 · Not Your Fault — empathy</div><p>Let me tell you why it never stuck. Because it wasn't your fault. Nobody gave you the whole picture — just fragments, one gadget at a time, with no order. That's like building furniture with no instructions. You didn't lack willpower. You lacked a clear path — one you could truly follow. And that path can be taught.</p></div>
+
+      <div class="copyblock"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">4 · The Six Pillars — mechanism</div><p>So here's the whole path, laid out plainly, in six pillars — like a real curriculum, not a pile of tips: nutrition, sleep, movement, strategic supplementation, protect your heart, understand your numbers. You master them in order, each building on the last. Not overwhelming when it's sequenced. Eighteen lessons, week by week — your tailored longevity blueprint.</p></div>
+
+      <div class="copyblock"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">5 · The Proof — Harvard</div><p>And these lessons aren't opinions, or the trend of the month. Harvard tracked 120,000 adults. Five of these very habits, by age 40, added 14 extra years. The science already did the hard part. Our whole job is simply to teach you how to do it.</p></div>
+
+      <div class="copyblock"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">6 · The Offer — the Academy</div><p>That's exactly what the Longevity Life Academy is — a guided classroom, not another pile of tips you'll bookmark and forget. Eighteen live sessions, where you can raise your hand. Real coaching that meets you where you are. And your own numbers, turned into a personal protocol — while someone walks the path with you.</p></div>
+
+      <div class="copyblock"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">7 · The Close — CTA + sign-off</div><p>So here's the honest truth: you really don't need more information. You're already buried in it. You need someone to make it accessible, to show you the right path, and to stay with you while you walk it. Class is in session — and there's a seat for you. I'm Courtney. This is Longevity Life Academy.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="k">Editor's log</span><h2>What I cut, and why (full auditability)</h2></div>
+    <div class="grid g2">
+      <div class="card"><h3 style="color:#ff9d7c">Removed</h3><ul class="ftlist" style="margin-top:12px">
+        <li><b>0:00–0:36</b> — recording/setup chatter ("on this one it's recording, there's an option to stop…").</li>
+        <li><b>~1:09</b> — director cue: "Very good. Go on."</li>
+        <li><b>~2:04</b> — "Start over. Start this part over." + the restarted pillars take.</li>
+        <li><b>4:12 → end</b> — 4 alternate takes of the close with live direction ("talk to the nation", "breath of fresh air", etc.).</li>
+      </ul></div>
+      <div class="card"><h3 style="color:var(--green)">Kept</h3><ul class="ftlist" style="margin-top:12px">
+        <li>The single cleanest read of every line — no stumbles, no restarts.</li>
+        <li>One best closing take (the "breath of fresh air" delivery direction — calm, not combative).</li>
+        <li>The locked sign-off: <b>"I'm Courtney. This is Longevity Life Academy."</b></li>
+        <li>Full 7-beat arc intact: noise → reset → empathy → pillars → proof → offer → close.</li>
+      </ul></div>
+    </div>
+    <div class="note warn"><b>Fact-check flag:</b> Courtney says "Harvard tracked 120,000 adults… five habits by age 40 added 14 extra years." This mirrors the well-known Harvard/AHA lifestyle study. Confirm the exact figure and citation before the stat hits the CTA card — a named source is a conversion asset; a wrong one is a liability.</div>
+  </div>
+</section>
+
+<!-- ============ TAB 3: STORYBOARDS ============ -->
+<section class="panel" id="board">
+  <div class="eyebrow">Tab 3 · Built only on Courtney's real script</div>
+  <h1>Three storyboards. <em>One winner.</em></h1>
+  <p class="lead" style="margin-top:20px">Same clean VO, three distinct visual worlds — each engineered to the French Atelier skeleton and each carrying <b>3 lead-gen CTA cards in ~3 places</b>. Footage recs are premium, viral-grade, and pinned to the line they detonate. Pick one, or steal the best beats from each.</p>
+
+  <div class="jump">
+    <a href="#opt1">① The Newsroom</a>
+    <a href="#opt2">② The Atelier</a>
+    <a href="#opt3">③ The Blueprint</a>
+    <a href="#board-cta">The 3 CTA cards</a>
+  </div>
+
+  <!-- OPTION 1 -->
+  <div class="section" id="opt1">
+    <div class="opt-head"><span class="opt-badge o1">①</span><div><h2 style="margin:0">The Newsroom</h2><div class="opt-tagline">"Talking to the nation" — authority, urgency, a leader cutting through the noise.</div></div></div>
+    <p style="color:var(--text-muted);max-width:70ch;margin:6px 0 20px">Highest-contrast, most direct. Courtney as the calm authority in a warm study, intercut with the chaos of health misinformation. Best for cold Meta lead-gen — stops the scroll with tension, resolves it with her.</p>
+
+    <div class="beat"><div class="tc"><div class="t">0:00–0:08</div><div class="lab">Hook · Noise</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…a thousand voices. Every influencer, every headline — all shouting, all contradicting, all quietly selling."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Fast, punchy montage — a phone feed blurring past, competing headlines stacking, a supplement wall, a talking-head influencer muted mid-shout. Cut on every clause, cool/desaturated grade. <span class="tag-card">This is the chaos we rescue them from.</span></div><div class="row"><b class="tag-card">CARD ①:</b> full-frame — see CTA cards below (placed here as the hook-side promise).</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:08–0:20</div><div class="lab">Reset · Reveal</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "So take a breath. Put the noise down… calmly, with no hype and nothing to push."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Hard cut to silence — Courtney, WIDE, warm study, direct-adjacent eyeline. Grade snaps warm. A single slow push-in. The tonal switch IS the hook payoff.</div><div class="row"><b class="tag-card">CARD:</b> lower-third chyron — <b>COURTNEY · Longevity Life Academy</b>.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:20–0:36</div><div class="lab">Empathy</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "It wasn't your fault… that's like building furniture with no instructions."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> A single, beautiful metaphor shot — hands failing at flat-pack furniture, scattered parts, no manual. Then back to her, TIGHT, on "You didn't lack willpower."</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:36–0:52</div><div class="lab">Mechanism</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…six pillars, like a real curriculum… nutrition, sleep, movement, supplementation, protect your heart, understand your numbers."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Six gorgeous macro shots, one per pillar, each held ~1s — a knife through greens, morning light on linen, running feet, a single capsule, a pulse waveform, a wearable ring. Snap-cut in sequence.</div><div class="row"><b class="tag-card">CARD ②:</b> the 6-pillar mechanism card (below), built live as she names them.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:52–1:04</div><div class="lab">Proof</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "Harvard tracked 120,000 adults. Five of these very habits, by age 40, added 14 extra years."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Restrained, credible — an archival-feel research shot, then the stat lands full-frame. Let the number breathe. Back to her TIGHT on "The science already did the hard part."</div><div class="row"><b class="tag-card">CARD:</b> the Harvard proof card (below).</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">1:04–1:18</div><div class="lab">Offer</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…18 live sessions, where you can raise your hand… your own numbers turned into a personal protocol."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Warm live-session faces (3×2 grid of real members), a raised hand, a blueprint card rendering. Human, alive, not product-UI.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">1:18–1:30</div><div class="lab">Close · CTA</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "Class is in session — and there's a seat for you. I'm Courtney. This is Longevity Life Academy."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Courtney TIGHT, calm certainty, the "breath of fresh air" delivery → dissolve to brand end-card.</div><div class="row"><b class="tag-card">CARD ③:</b> the enroll end-card (below).</div></div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- OPTION 2 -->
+  <div class="section" id="opt2">
+    <div class="opt-head"><span class="opt-badge o2">②</span><div><h2 style="margin:0">The Atelier</h2><div class="opt-tagline">Pure French-Atelier elegance — warm, filmic, unhurried. Beauty is the argument.</div></div></div>
+    <p style="color:var(--text-muted);max-width:70ch;margin:6px 0 20px">Closest to the reference films. Minimal chaos, maximum craft. Every frame gorgeous enough to go viral on Instagram beauty feeds. Best for warm audiences and brand-halo reach — it seduces before it sells.</p>
+
+    <div class="beat"><div class="tc"><div class="t">0:00–0:10</div><div class="lab">World open</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "Trying to fix your health alone means a thousand voices…"</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Open on the WORLD, not the noise — a serene, cinematic morning: light through a window, steam off tea, a quiet room. The "thousand voices" implied by ONE elegant overwhelmed gesture. No face yet. Music bed (match FA).</div><div class="row"><b class="tag-card">CARD ①:</b> atmospheric title-card version of CTA ① (below), understated.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:10–0:22</div><div class="lab">Expert reveal</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "So take a breath. Put the noise down. I'm going to show you the direct path…"</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Courtney revealed WIDE in a beautiful study, Portra-warm, a real breath before she speaks. Slow push. Chyron fades in.</div><div class="row"><b class="tag-card">CARD:</b> <b>COURTNEY · Longevity Life Academy</b> chyron.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:22–0:38</div><div class="lab">Empathy · craft</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "Nobody gave you the whole picture — just fragments… you lacked a clear path."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Elegant metaphor — beautiful objects laid out in disorder, then a hand arranging them into calm order. Craft as visual poetry. WIDE↔TIGHT on her between beats.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:38–0:54</div><div class="lab">Mechanism</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…six pillars, like a real curriculum… each building on the last."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Six painterly still-life vignettes, gallery-lit — each pillar as a beautiful tableau. Motion-typography plates rise one at a time over them (Fraunces, bone on navy).</div><div class="row"><b class="tag-card">CARD ②:</b> elegant 6-pillar curriculum card (numbered rows, MasterClass-module feel).</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:54–1:06</div><div class="lab">Proof</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "Harvard tracked 120,000 adults… added 14 extra years."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Understated authority — a clean typographic reveal of the stat over a soft, warm background. No sensationalism; the elegance sells the credibility.</div><div class="row"><b class="tag-card">CARD:</b> refined Harvard proof card (below).</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">1:06–1:20</div><div class="lab">Offer</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…real coaching that meets you where you are… someone walks the path with you."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Warm, candid member moments filmed like memories — laughter in a session, a nod, a notebook. The transformed life, French-Atelier style.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">1:20–1:32</div><div class="lab">Close · CTA</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "There's a seat for you. I'm Courtney. This is Longevity Life Academy."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Courtney TIGHT, a small knowing smile → elegant brand end-card, music resolves.</div><div class="row"><b class="tag-card">CARD ③:</b> refined enroll end-card (below).</div></div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- OPTION 3 -->
+  <div class="section" id="opt3">
+    <div class="opt-head"><span class="opt-badge o3">③</span><div><h2 style="margin:0">The Blueprint</h2><div class="opt-tagline">Structure as the star — the "curriculum, not a pile of tips" idea made visible.</div></div></div>
+    <p style="color:var(--text-muted);max-width:70ch;margin:6px 0 20px">The most product-forward, highest-intent cut. Leans into the six pillars and the personal blueprint as an animated spine. Best for retargeting warm leads who already know the brand and need the mechanism + proof to convert.</p>
+
+    <div class="beat"><div class="tc"><div class="t">0:00–0:08</div><div class="lab">Hook · Noise</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…all shouting, all contradicting, all quietly selling. No wonder you're overwhelmed."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> A chaotic web of floating health "tips" cards swirling, tangled, un-navigable — a visual mess. It's the anti-blueprint. Cool grade.</div><div class="row"><b class="tag-card">CARD ①:</b> CTA ① drops as the tangle freezes.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:08–0:20</div><div class="lab">Reset · Reveal</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "I'm going to show you the direct path to longevity. Let me walk you through it."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> The tangle resolves into a single clean line/path animation → cut to Courtney, warm, direct. Order from chaos, literally.</div><div class="row"><b class="tag-card">CARD:</b> chyron — <b>COURTNEY · Longevity Life Academy</b>.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:20–0:34</div><div class="lab">Empathy</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…building furniture with no instructions. You lacked a clear path — one you could truly follow."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> Blueprint/schematic motif begins — faint grid lines, an assembly diagram drawing itself. "That path can be taught" as the diagram completes.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:34–0:52</div><div class="lab">Mechanism · HERO</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…six pillars… nutrition, sleep, movement, supplementation, heart, numbers. You master them in order."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> The centerpiece — an animated 6-pillar spine builds row by row, locking in sequence as she names each, "18 lessons, week by week" ticking across a timeline. This is the film's signature shot.</div><div class="row"><b class="tag-card">CARD ②:</b> the full animated curriculum card (below) — held longest here.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">0:52–1:04</div><div class="lab">Proof</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "Harvard tracked 120,000 adults… added 14 extra years."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> The stat integrates INTO the blueprint — "+14 years" snaps onto the timeline as a hard data point. Proof and mechanism become one image.</div><div class="row"><b class="tag-card">CARD:</b> Harvard proof card, blueprint-styled.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">1:04–1:18</div><div class="lab">Offer</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "…your own numbers turned into a personal protocol while someone walks the path with you."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> A personal blueprint card renders with sample stats → a live-session grid → a coach + member split-screen. The product's promise, visualized.</div></div></div>
+
+    <div class="beat"><div class="tc"><div class="t">1:18–1:30</div><div class="lab">Close · CTA</div></div><div class="bd"><h4 style="color:var(--gold)">LINE: "Class is in session — and there's a seat for you. I'm Courtney. This is Longevity Life Academy."</h4><div class="row"><b class="tag-see">FOOTAGE:</b> The completed blueprint + one empty seat highlighting → Courtney TIGHT → brand end-card.</div><div class="row"><b class="tag-card">CARD ③:</b> enroll end-card, blueprint-styled.</div></div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CTA CARDS -->
+  <div class="section" id="board-cta">
+    <div class="section-head"><span class="k">The 3 CTA cards</span><h2>Same three cards, every storyboard — placed in ~3 anchor points</h2></div>
+    <p style="color:var(--text-muted);max-width:72ch;margin-bottom:24px">This is the rule that makes it a converter, not a testimonial. Short. Authentic. Powerful. Each card below is copy-ready — text, style, and exact placement. Fraunces display, bone on navy, per brand.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <span class="pill blue" style="margin-bottom:14px">CTA ① · The Hook Promise · ~0:05</span>
+        <div class="gcard"><div class="big">Stop guessing.<br>Start a real path.</div><div class="sub">The direct path to longevity — no hype.</div><div class="foot">Longevity Life Academy</div></div>
+        <div class="copyblock" style="margin-top:14px"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">Card text</div><p style="font-size:15px">Stop guessing. Start a real path. — The direct path to longevity, no hype. · Longevity Life Academy</p></div>
+        <p style="font-size:13.5px;color:var(--text-faint)">Purpose: convert the "overwhelm" of the hook into a promise the second we have attention.</p>
+      </div>
+
+      <div class="card">
+        <span class="pill gold" style="margin-bottom:14px">CTA ② · The Mechanism · ~0:40</span>
+        <div class="gcard"><div class="big">6 Pillars.<br>18 Live Lessons.</div><div class="sub">Eat · Sleep · Move · Supplement · Heart · Data</div><div class="foot">A curriculum, not a pile of tips</div></div>
+        <div class="copyblock" style="margin-top:14px"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">Card text</div><p style="font-size:15px">6 Pillars. 18 Live Lessons. — Eat · Sleep · Move · Supplement · Heart · Data. A curriculum, not a pile of tips.</p></div>
+        <p style="font-size:13.5px;color:var(--text-faint)">Purpose: make the offer tangible at the exact moment she names the mechanism.</p>
+      </div>
+
+      <div class="card">
+        <span class="pill green" style="margin-bottom:14px">CTA ③ · The Close · ~1:22</span>
+        <div class="gcard"><div class="big">There's a seat<br>for you.</div><div class="sub">Class is in session — enrol now.</div><div class="foot">Longevity Life Academy · start this week</div></div>
+        <div class="copyblock" style="margin-top:14px"><button class="copybtn" onclick="copyBlock(this)">⧉ Copy</button><div class="lbl">Card text</div><p style="font-size:15px">There's a seat for you. — Class is in session, enrol now. · Longevity Life Academy · start this week</p></div>
+        <p style="font-size:13.5px;color:var(--text-faint)">Purpose: the single, unmistakable action. Short, authentic, powerful.</p>
+      </div>
+    </div>
+
+    <div class="section" style="margin-top:44px">
+      <div class="section-head"><span class="k">Support cards</span><h2>Proof + chyron (used across all three)</h2></div>
+      <div class="grid g3">
+        <div class="card"><span class="pill" style="margin-bottom:12px">Proof card · ~0:56</span>
+          <div class="gcard"><div class="big" style="color:var(--gold)">+14 years</div><div class="sub">Harvard tracked 120,000 adults. Five habits, by age 40.</div><div class="foot">Verify exact citation before broadcast</div></div></div>
+        <div class="card"><span class="pill" style="margin-bottom:12px">Name chyron · ~0:12</span>
+          <div class="gcard" style="text-align:left"><div class="big" style="font-size:1.25rem">COURTNEY</div><div class="sub" style="margin-top:4px">Longevity Life Academy</div><div class="foot">Documentary lower-third · the only chyron</div></div></div>
+        <div class="card"><span class="pill" style="margin-bottom:12px">Sign-off · final frame</span>
+          <div class="gcard"><div class="big" style="font-style:italic;font-size:1.35rem">It's your life.<br>Live it well.</div><div class="foot">Brand lockup + offer strip</div></div></div>
+      </div>
+    </div>
+
+    <div class="note"><b>Placement discipline:</b> exactly three lead-gen cards (①②③) per film, at hook / mechanism / close. Proof + chyron are support, not CTAs. Never let a card overlap the Shorts/Reels UI — keep card safe-area at Y 60–65%.</div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div>LLA · Courtney Master Production File · Built to the French Atelier formula, held higher.</div>
+  <div>Sources: <a href="https://youtu.be/G0lUXZKwg-8" target="_blank">Charline</a> · <a href="https://www.youtube.com/watch?v=z-l7f4qOmEo" target="_blank">Philippe</a> · <a href="https://github.com/gitteromri-ux/lla-s09-s10-downloads" target="_blank">Courtney masters</a></div>
+</footer>
+
+<script>
+// Tabs
+const tabs=[...document.querySelectorAll('.tab')],panels=[...document.querySelectorAll('.panel')];
+function show(t){tabs.forEach(b=>b.classList.toggle('active',b.dataset.t===t));panels.forEach(p=>p.classList.toggle('active',p.id===t));window.scrollTo({top:0,behavior:'smooth'});}
+tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.t)));
+
+// Copy single block
+function copyBlock(btn){
+  const p=btn.parentElement.querySelector('p');
+  navigator.clipboard.writeText(p.innerText.trim()).then(()=>flash(btn));
+}
+// Copy full script
+function copyAll(btn){
+  const blocks=[...document.querySelectorAll('#fullscript .copyblock')];
+  const txt=blocks.map(b=>{
+    const lbl=b.querySelector('.lbl').innerText.trim();
+    const p=b.querySelector('p').innerText.trim();
+    return lbl+'\n'+p;
+  }).join('\n\n');
+  navigator.clipboard.writeText(txt).then(()=>flash(btn,'✓ Full script copied'));
+}
+function flash(btn,msg){
+  const o=btn.innerHTML;btn.classList.add('done');btn.innerHTML=msg||'✓ Copied';
+  setTimeout(()=>{btn.classList.remove('done');btn.innerHTML=o;},1600);
+}
+</script>
+</body>
+</html>
